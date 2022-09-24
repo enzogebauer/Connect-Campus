@@ -1,15 +1,15 @@
 import './home.css'
 import Navbar from '../../components/navbar/Navbar'
-const Index = () => {
+function Home () {
   return (
 
     <section id="bg">
       <Navbar />
-     
+      
       </section>
     
 
   )
 
 }
-export default Index
+export default Home

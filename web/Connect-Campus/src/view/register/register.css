@@ -1,0 +1,54 @@
+#bg-login{
+  width:100vw;
+  height:100vh;
+  display:flex !important;
+  background-image: linear-gradient(rgba(16, 24, 32, 1),rgba(254, 231, 21, 1)) !important;
+  display:flex;
+}
+.leftregister{
+  display:flex;
+  width:50vw;
+  justify-content:center;
+  align-items:center ;
+}
+.leftregister p {
+  margin-left:15rem;
+}
+.rightregister{
+  width:50vw;
+}
+.leftregister h2{
+  font-size:36pt;
+}
+.leftregister p{
+  font-size:24pt;
+}
+
+.rightregister h2{
+  font-size:36pt;
+  justify-self:center!important;
+}
+.btnregister{
+  background-color:rgba(16, 24, 32, 1)!important;
+  border:none;
+  font-weight:500;
+  font-size:26px;
+  width:600px;
+  height:70px;
+  padding:15px;
+  letter-spacing:1px;
+}
+.iemailregister{
+  background-color:rgba(16, 24, 32, 1)!important;
+  height:50px;
+  border:none;
+ 
+  
+}
+
+
+.ipasswordregister{
+  background-color:rgba(16, 24, 32, 1)!important;
+  height:50px;
+  border:none;
+}

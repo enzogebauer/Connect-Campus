@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Index from '../src/view/home/Index.jsx'
+import Router from './Router'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Index />
+    <Router />
   </React.StrictMode>
 )
