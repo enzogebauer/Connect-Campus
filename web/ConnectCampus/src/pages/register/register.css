@@ -1,8 +1,8 @@
-#bg-login{
+#bg-register{
   width:100vw;
   height:100vh;
   display:flex !important;
-  background-image: linear-gradient(rgba(16, 24, 32, 1),rgba(254, 231, 21, 1)) !important;
+  background-image: linear-gradient(rgba(26, 51, 75, 1),rgba(165, 21, 254, 1)) !important;
   display:flex;
 }
 .leftregister{

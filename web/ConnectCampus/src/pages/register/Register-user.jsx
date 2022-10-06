@@ -2,11 +2,11 @@ import './register.css'
 
 function Register() {
   return (
-    <main id="bg-login">
+    <main id="bg-register">
       <div className="leftregister">
         <div className="">
           <h2 className='text-white mb-4'>Welcome to Connect Campus</h2>
-          <p className='text-white'>sign up to Continue acess</p>
+          <p className='text-white'>sign up to Continue access</p>
         </div>
       </div>
       <div className="right d-flex align-items-center justify-content-center">

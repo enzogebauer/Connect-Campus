@@ -1,6 +1,6 @@
 import './home.css'
 import Navbar from '../../components/navbar/Navbar'
-function Home () {
+export const Home = () => {
   return (
 
     <section id="bg">
@@ -9,7 +9,6 @@ function Home () {
       </section>
     
 
-  )
+  );
 
 }
-export default Home
