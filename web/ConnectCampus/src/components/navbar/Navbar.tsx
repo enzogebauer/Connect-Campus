@@ -1,5 +1,4 @@
-import {Link} from 'react-router-dom'
-import './nav.css'
+import {Link} from 'react-router-dom';
 const Navbar = () => {
   return (
     <nav className="navbg navbar navbar-expand-lg navbar-dark  " style={{backgroundColor: '#101820'}}>
