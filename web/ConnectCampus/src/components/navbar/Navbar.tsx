@@ -1,33 +1,31 @@
-import {Link} from 'react-router-dom';
-const Navbar = () => {
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
+import logo from "../../../assets/svg/logo.svg"
+function NavBar() {
   return (
-    <nav className="navbg navbar navbar-expand-lg navbar-dark  " style={{backgroundColor: '#101820'}}>
-      <div className="container-fluid">
-       
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse justify-content-around" id="navbarNav">
-          <ul className="navbar-nav">
-          
-            <li className="nav-item">
-                <a className="nav-link active  fs-5" href="#">Logo</a>
-            </li>
-        
-              <li className="nav-item">
-                <Link to="/">
-                  <a className="nav-link active fs-5" aria-current="page" href="#">Home</a>
-                </Link>
-              </li>
-            <li className="nav-item">
-              <Link to="/private">
-                <a className="nav-link active fs-5" aria-current="page" href="#">Profile</a>
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  )
+    <Navbar bg="" expand="lg" style={{ backgroundColor: "#111111" }}>
+      <Container className="" >
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="d-flex justify-content-center align-items-center">
+          <Navbar.Brand as={Link} to="/" href="#home" className='ms-lg-5'>
+          <img
+            src={logo}
+            className="d-inline-block align-top"
+            alt="React Bootstrap logo"
+          />
+        </Navbar.Brand>
+            <Nav.Link as={Link} to="/" href="#home" className=' text-white mx-lg-5 mb-3 mt-3'>Home</Nav.Link>
+            <Nav.Link as={Link} to="/private" href="#home" className=' mx-lg-5 px-4 bg-light ms-4 mb-3 mt-3' style={{color: "#111111"}}>Profile</Nav.Link>
+            
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
-export default Navbar;
+
+export default NavBar;
