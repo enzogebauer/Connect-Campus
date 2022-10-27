@@ -5,7 +5,6 @@ export const Home = () => {
 
     <section id="bg">
       <Navbar />
-      
       </section>
     
 
