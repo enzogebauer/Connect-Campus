@@ -18,7 +18,7 @@ export const Register =() => {
                                 htmlFor="name"
                                 className="block text-sm font-medium text-white undefined"
                             >
-                                Name
+                                Complete Name
                             </label>
                             <div className="flex flex-col items-start">
                                 <input
