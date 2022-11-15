@@ -13,7 +13,9 @@ module.exports = {
       "gray-dark":"#6A5F5D",
       "slate":"#E0CDC9",
       "black":"#0B0909",
-
+        "pink-light": '#ff7ce5',
+        "pink-default": '#ff49db',
+        "pink-dark": '#ff16d1',
     },
     extend: {},
   },

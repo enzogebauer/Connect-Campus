@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logo from '../../assets/ccLogo.svg'
 import threebars from '../../assets/threebars.svg'
-export const Navbar =({ fixed })=> {
+export const Navbar = ({ fixed }) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
@@ -13,7 +13,7 @@ export const Navbar =({ fixed })=> {
               className="text-sm font-bold leading-relaxed inline-block mr-4 py-1 "
               href="#pablo"
             >
-             <img src={Logo} alt="" className="h-14 w-auto" />
+              <img src={Logo} alt="" className="h-14 w-auto" />
             </Link>
             <button
               className="text-white cursor-pointer text-xl leading-none px-3 py-1 border  border-transparent  bg-transparent block lg:hidden outline-none focus:outline-none"
@@ -31,29 +31,16 @@ export const Navbar =({ fixed })=> {
             id="example-navbar-danger"
           >
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-              <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="#pablo"
-                >
-                  <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><Link to="/register" className="ml-2">Sign Up</Link>
-                </a>
+              <li className="nav-item px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+                <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><Link to="/register" className="ml-2">Sign Up</Link>
               </li>
-              <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="#pablo"
-                >
+              <li className="nav-item px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
                   <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><Link to="/login" className="ml-2">Sign In</Link>
-                </a>
               </li>
-              <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="#pablo"
-                >
+              <li className="nav-item px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+               
                   <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75 "></i><Link to="/profile" className="ml-2">Profile</Link>
-                </a>
+               
               </li>
             </ul>
           </div>

@@ -11,20 +11,64 @@ app.listen(5000, ()=>{
 });
 
 // Routes
-//create a TODO
+//create a POST
 app.post("/posts", async(req,res)=>{
   //away
   try{
-    const {description} = req.body;
-    const newPost = await pool.query("INSERT INTO post (caption) values($1) RETURNING *",[description]
+    const {caption} = req.body;
+    const newPost = await pool.query("INSERT INTO post (caption) values($1) RETURNING *",[caption]
     );
-    res.json(newPost)
+    res.json(newPost);
 
   } catch(err){
-    console.error(err.message)
+    console.error(err.message);
   }
 });
 //get all TODOS
-//Get a todo
-//Update a todo
-//delete a todo
+app.get("/posts", async(req,res)=>{
+  try{
+    const allPosts = await pool.query("SELECT * FROM post");
+    res.json(allPosts.rows);
+  } catch(err){
+    console.error(err.message);
+  }
+
+}
+)
+//Get a Post  LG
+app.get("/posts/:id", async (req, res) => {
+  try {
+      const {id} = req.params;
+      const post = await pool.query("SELECT * FROM post WHERE post_id = $1", [id])
+      res.json(post.rows[0]);
+  }
+  catch (err){
+    console.error(err.message)
+  }
+})
+
+//Update a todo ZOCA
+app.put("/posts/:id",async (req,res)=>{
+  try{
+    const {id} = req.params;
+    const {caption} = req.body;
+    const updatePost = await pool.query("UPDATE post SET caption = $1 WHERE post_id = $2",[caption,id]);
+    res.json("Post was updated")
+  }catch (err){
+    console.error(err.message);
+  }
+  
+});
+
+//delete a todo DUNKEL
+
+app.delete("/posts/:id", async (req, res) => {
+  try {
+    const { id } =req.params;
+    const deletePost = await pool.query("DELETE FROM post WHERE post_id = $1", [id]);
+    res.json("Post was deleted!");
+  }catch (err) {
+    console.log(err.message);
+  }
+});
+

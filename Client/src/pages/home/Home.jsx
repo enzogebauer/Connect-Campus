@@ -1,12 +1,17 @@
-import { Navbar } from "../../components/navbar"
-
+import { InputPost } from "../../components/InputPost"
+import { Navbar } from "../../components/Navbar"
+import { ListPosts } from "../../components/ListPosts"
 export function Home() {
   return (
     <>
       <Navbar fixed="true" />
-      <div className="w-full pt-0 h-[2000px] bg-purple-light mt-0">
-        <h1 className="pt-5 text-purple-dark text-center">This is the Home page</h1>
-      </div>
+      <section className="w-full pt-0 h-[2000px] bg-purple-light mt-0">
+        <div className="flex justify-center flex-col items-center pt-20">
+          <InputPost/>
+          <ListPosts />
+        </div>
+        
+      </section>
 
     </>
   )
