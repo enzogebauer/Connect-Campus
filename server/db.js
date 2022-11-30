@@ -1,6 +1,6 @@
 const Pool = require('pg').Pool;
 const pool = new Pool({
-  user:"zoca",
+  user:"luiz",
   password:"sqlazul", //mudar a senha do banco para o banco local
   host:"localhost",
   port:5432,
