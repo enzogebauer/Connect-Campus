@@ -24,7 +24,7 @@ app.post("/posts", async(req,res)=>{
     console.error(err.message);
   }
 });
-//get all TODOS
+//get all Posts
 app.get("/posts", async(req,res)=>{
   try{
     const allPosts = await pool.query("SELECT * FROM post");
@@ -47,7 +47,7 @@ app.get("/posts/:id", async (req, res) => {
   }
 })
 
-//Update a todo ZOCA
+//Update a Post ZOCA
 app.put("/posts/:id",async (req,res)=>{
   try{
     const {id} = req.params;
@@ -60,12 +60,12 @@ app.put("/posts/:id",async (req,res)=>{
   
 });
 
-//delete a todo DUNKEL
+//delete a Post DUNKEL
 
 app.delete("/posts/:id", async (req, res) => {
   try {
     const { id } =req.params;
-    const deletePost = await pool.query("DELETE FROM post WHERE post_id = $1", [id]);
+    const deletePost = await pool.query("DELETE  FROM post WHERE post_id = $1", [id]);
     res.json("Post was deleted!");
   }catch (err) {
     console.log(err.message);
