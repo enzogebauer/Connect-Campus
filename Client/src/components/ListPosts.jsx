@@ -1,52 +1,45 @@
 import { Fragment, useState, useEffect } from "react"
+import { EditPosts } from "./EditPosts";
 export const ListPosts = () => {
-  const [Posts, setPosts] = useState([]);
-  const deleteTodo = async id => {
-    try {
-      const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
-        method: "DELETE"
-      });
+  const [post, setPost] = useState([]);
 
-      setTodos(todos.filter(todo => todo.todo_id !== id));
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-  const getPosts = async () => {
+  const getPost = async () => {
     try {
       const response = await fetch("http://localhost:5000/posts")
       const jsonData = await response.json()
-      setPosts(jsonData)
+      setPost(jsonData)
     } catch (error) {
       console.log(error.message)
     }
   }
   useEffect(() => {
-    getPosts();
+    getPost();
   }, []);
+  const deletePost = async (id) => {
+    try {
+      const deletePost = await fetch(`http://localhost:5000/posts/${id}`, {
+        method: "DELETE"
+      });
+      setPost(post.filter(post => post.post_id !== id));
+    } catch (err) {
+      console.error(err.message)
+
+    }
+  }
   return (
     <Fragment>
       {" "}
-      <div className="overflow-x-auto relative">
-        <table className="w-full text-sm text-left text-white">
-          <thead className="text-xs text-white uppercase bg-purple-nav">
-            <tr>
-              <th className="px-5 py-3">Caption</th>
-              <th className="px-5 py-3">Edit</th>
-              <th className="px-5 py-3">Delete</th>
-            </tr>
-          </thead>
-          <tbody >
+      <div className="overflow-x-auto flex-col">
+        {post.map(post => (
+          <p className="my-10" key={post.post_id} >
+            <p className="py-40 px-6 w-[600px] h-[150px]  rounded-xl bg-white text-black font-semibold text-center">{post.caption}</p>
+            <div className="flex flex-row justify-center">  
+              <p className="py-4 px-6"> <button><EditPosts post={post} /></button></p>
+              <p className="py-4 px-6"><button className="bg-red-danger p-2  font-semibold rounded-md text-white" onClick={() => deletePost(post.post_id)}>Delete</button></p>
+            </div>
 
-            {Posts.map(Posts => (
-              <tr className="text-left">
-                <td  className="py-4 px-6">{Posts.caption}</td>
-                <td  className="py-4 px-6">Edit</td>
-                <td  className="py-4 px-6">Delete</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+          </p>
+        ))}
       </div>
     </Fragment>
   )

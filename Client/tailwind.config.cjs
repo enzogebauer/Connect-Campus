@@ -16,8 +16,11 @@ module.exports = {
         "pink-light": '#ff7ce5',
         "pink-default": '#ff49db',
         "pink-dark": '#ff16d1',
+        "red-danger":"#8B0303",
+        "green-edit":"#038B03",
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+  ],
 }
