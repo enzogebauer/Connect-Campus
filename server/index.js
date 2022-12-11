@@ -16,7 +16,7 @@ app.post("/posts", async(req,res)=>{
   //away
   try{
     const {caption} = req.body;
-    const newPost = await pool.query("INSERT INTO post (caption) values($1) RETURNING *",[caption]
+    const newPost = await pool.query("insert into post (caption) values($1) returning *",[caption]
     );
     res.json(newPost);
 
