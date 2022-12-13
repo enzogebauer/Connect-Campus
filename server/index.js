@@ -16,7 +16,8 @@ app.post("/posts", async(req,res)=>{
   //away
   try{
     const {caption} = req.body;
-    const newPost = await pool.query("insert into post (caption) values($1) returning *",[caption]
+    const newPost = await pool.query("insert into tb_post (caption,created_by_user_id) values($1,1) returning *",[caption]
+    //user default para criar posts 1
     );
     res.json(newPost);
 
@@ -27,7 +28,7 @@ app.post("/posts", async(req,res)=>{
 //get all Posts
 app.get("/posts", async(req,res)=>{
   try{
-    const allPosts = await pool.query("SELECT * FROM post");
+    const allPosts = await pool.query("SELECT * FROM tb_post");
     res.json(allPosts.rows);
   } catch(err){
     console.error(err.message);
@@ -39,7 +40,7 @@ app.get("/posts", async(req,res)=>{
 app.get("/posts/:id", async (req, res) => {
   try {
       const {id} = req.params;
-      const post = await pool.query("SELECT * FROM post WHERE post_id = $1", [id])
+      const post = await pool.query("SELECT * FROM tb_post WHERE post_id = $1", [id])
       res.json(post.rows[0]);
   }
   catch (err){
@@ -52,7 +53,7 @@ app.put("/posts/:id",async (req,res)=>{
   try{
     const {id} = req.params;
     const {caption} = req.body;
-    const updatePost = await pool.query("UPDATE post SET caption = $1 WHERE post_id = $2",[caption,id]);
+    const updatePost = await pool.query("UPDATE tb_post SET caption = $1 WHERE post_id = $2",[caption,id]);
     res.json("Post was updated")
   }catch (err){
     console.error(err.message);
@@ -65,7 +66,7 @@ app.put("/posts/:id",async (req,res)=>{
 app.delete("/posts/:id", async (req, res) => {
   try {
     const { id } =req.params;
-    const deletePost = await pool.query("DELETE  FROM post WHERE post_id = $1", [id]);
+    const deletePost = await pool.query("DELETE  FROM tb_post WHERE post_id = $1", [id]);
     res.json("Post was deleted!");
   }catch (err) {
     console.log(err.message);
