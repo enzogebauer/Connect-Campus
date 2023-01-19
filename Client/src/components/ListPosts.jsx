@@ -30,7 +30,7 @@ export const ListPosts = () => {
     <Fragment>
       {" "}
       <div className="overflow-x-auto flex-col">
-        {post.map(post => (
+        {post.slice(0).reverse().map(post => (
           <p className="my-10" key={post.post_id} >
             <p className="py-40 px-6 w-[600px] h-[150px]  rounded-xl bg-white text-black font-semibold text-center">{post.caption}</p>
             <div className="flex flex-row justify-center">  
